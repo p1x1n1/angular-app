@@ -1,1 +1,6 @@
-<p>page3 works!</p>
+<div>
+    <p>page3 works!</p>
+    <div *ngFor="let color of exampleArray | reverse: {isAddPointInEnd: true, isAddPointInBeg: true}:true" style="background-color: black;"> <!-- exampleArray | reverse  revers - pipe-->
+        {{color}}
+    </div>
+</div>

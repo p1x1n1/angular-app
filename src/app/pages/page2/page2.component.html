@@ -1,1 +1,27 @@
-<p>page2 works!</p>
+<form [formGroup]="myForm" (ngSubmit)="OnSubmit()">
+    <div>
+        <label>Имя</label>
+        <input type="userName" formControlName="userName"/>
+    </div>
+    <div *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
+        Не указано Имя!
+    </div>
+    <div>
+        <label>Фамилия</label>
+        <input name="userSurname" formControlName="userSurname" />
+    </div>
+    <div *ngIf="myForm.controls['userSurname'].invalid && myForm.controls['userSurname'].touched">
+        Не указана Фамилия!
+    </div>
+    <button type="submit" [disabled]="myForm.invalid">Отправить!</button>
+</form>
+<div class="users">
+   <h3>Пользователи</h3> 
+   <ul>
+       <li *ngFor="let user of users"> {{user.userSurname}} {{user.userName}}</li>
+   </ul>
+</div>
+<!--
+    required - Обязательно
+    touched - касалось получалось фокус
+-->

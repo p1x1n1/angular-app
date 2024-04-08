@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./page3.component.css']
 })
 export class Page3Component {
+  exampleArray: Array<any> = ['green','yellow','blue','orange',]
+
 
 }

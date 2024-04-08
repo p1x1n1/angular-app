@@ -1,1 +1,39 @@
-<p>page1 works!</p>
+<p italic>page1 works!</p>
+<div>
+    <h3>Блюда</h3> 
+    <ul>
+        <li *ngFor="let dish of dishes"> 
+            <p><b>{{dish.name}} </b></p>
+            <p>{{dish.type}} </p>
+            <p>Ингредиенты: {{dish.ingredients}} </p>
+            <p *ngIf="dish.isVegetarian"> Подходит вегетерианцем </p>
+            <p *ngIf="!dish.isVegetarian"> Не подходит вегетерианцем </p>
+            <p>{{dish.calories}} калорий</p>
+            <br/>
+        </li>
+    </ul>
+</div>
+<div>
+    <div>
+        <label>Имя</label>
+        <input name ="name" [(ngModel)]="name" (ngModelChange)="onNameChange()" #name1="ngModel" required>
+    </div>
+    <div>
+        <label>Фамилия</label>
+        <input name ="surname" [(ngModel)]="surname" #surname1="ngModel" required>
+    </div>
+    <div>
+        <label>Возраст</label>
+        <input name ="age" [(ngModel)]="age" #age1="ngModel" required>
+    </div>
+    <div>
+        <button (click)="addUser()" [disabled]="name1.invalid || surname1.invalid || age1.invalid ">Добавить</button>
+    </div>
+</div>
+
+<div>
+    <h3>Пользователи</h3> 
+    <ul>
+        <li *ngFor="let user of users"> {{user.name}} {{user.surname}} {{user.age}}</li>
+    </ul>
+ </div>
